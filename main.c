@@ -184,6 +184,25 @@ void ex_vpl_2() {
     free(b);
 }
 
+void ex_vpl_3() {
+    void *res = malloc(sizeof(double));
+    void *a = malloc(sizeof(double));
+    void *b = malloc(sizeof(double));
+
+    VPL_ASIGN_SCAL(res, 0, double);
+    VPL_ASIGN_SCAL(a, 2, double);
+    VPL_ASIGN_SCAL(b, 4, double);
+
+    VPL_ADD3(res, a, b, double, double, double);
+    printf("%f + %f = %f\n", VPL_VALUE(a, double), VPL_VALUE(b, double), VPL_VALUE(res, double));
+    VPL_SUB3(res, a, b, double, double, double);
+    printf("%f - %f = %f\n", VPL_VALUE(a, double), VPL_VALUE(b, double), VPL_VALUE(res, double));
+    VPL_MUL3(res, a, b, double, double, double);
+    printf("%f * %f = %f\n", VPL_VALUE(a, double), VPL_VALUE(b, double), VPL_VALUE(res, double));
+    VPL_DIV3(res, a, b, double, double, double);
+    printf("%f / %f = %f\n\n", VPL_VALUE(a, double), VPL_VALUE(b, double), VPL_VALUE(res, double));
+}
+
 int main() {
     ex_vpl_op_scal();
     ex_vpl_op1();
@@ -191,5 +210,6 @@ int main() {
     ex_vpl_scal();
     ex_vpl_1();
     ex_vpl_2();
+    ex_vpl_3();
     return 0;
 }
