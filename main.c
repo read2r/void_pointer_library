@@ -201,6 +201,10 @@ void ex_vpl_3() {
     printf("%f * %f = %f\n", VPL_VALUE(a, double), VPL_VALUE(b, double), VPL_VALUE(res, double));
     VPL_DIV3(res, a, b, double, double, double);
     printf("%f / %f = %f\n\n", VPL_VALUE(a, double), VPL_VALUE(b, double), VPL_VALUE(res, double));
+
+    free(res);
+    free(a);
+    free(b);
 }
 
 int main() {
